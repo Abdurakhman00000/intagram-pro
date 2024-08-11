@@ -1,67 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 .Register {
-  .inst {
-    h1 {
-      font-family: "Oswald";
-      font-size: 54px;
-      font-weight: 400;
-      text-align: center;
-    }
-    p {
-      opacity: 0.8;
-      font-family: Montserrat;
-    }
-  }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: -40px;
+  padding-block: 20px;
+
   .content {
-    padding: 73px 0;
-    margin-top: 79px;
+    max-width: 400px;
+    width: 100%;
+    padding: 40px 25px;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 400px;
-    height: 890px;
+    gap: 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    .inst {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      text-align: center;
+      h1 {
+        font-family: "Oswald";
+        font-size: 54px;
+        font-weight: 400;
+      }
+      p {
+        opacity: 0.8;
+        font-family: Montserrat;
+        max-width: 250px;
+        margin: 0 auto;
+      }
+    }
     .facebook {
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 58vh;
-        height: 43px;
-        border-radius: 12px;
-        border: none;
-        background: #1251fc;
-        color: #fff;
-        font-size: 16px;
-        gap: 5px;
+      height: 43px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: none;
+      background: #1251fc;
+      color: #fff;
+      font-size: 16px;
+      gap: 5px;
+    }
+    .or{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .line{
+        width: 50%;
+        border-top: #000000 1px solid;
       }
     }
     form {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 18px;
       input {
-        width: 58vh;
+        width: 100%;
         height: 43px;
-        padding-left: 9px;
+        padding:0 9px;
         outline: none;
       }
       .rules {
-        p {
+        text-align: center;
+        a{
+          color: #2860fb;
+        }
+        a,
+        p,
+        span {
           opacity: 0.8;
           font-family: Montserrat;
           font-size: 15px;
         }
       }
       button {
-        width: 58vh;
         height: 43px;
         border-radius: 12px;
         border: none;
@@ -70,32 +82,25 @@
         font-size: 16px;
       }
     }
-    h1 {
-      padding: 0 0 23px 0;
-    }
-    p {
-      text-align: center;
-    }
   }
   .account {
-    margin-top: 18px;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    width: 400px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    a {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px 25px;
+    margin-inline: auto;
+    text-align: center;
+    margin-top: 40px;
+    span {
       text-decoration: none;
       color: #000;
     }
+    
   }
-  .facebook {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    span {
-      color: #2860fb;
-    }
+
+}
+@media (max-width: 400px) {
+  .Register {
+    padding-block: 20px;
   }
 }

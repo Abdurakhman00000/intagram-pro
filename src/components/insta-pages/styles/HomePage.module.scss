@@ -1,0 +1,29 @@
+.main_home {
+    margin-top: 30px;
+    & .main_stories {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        margin-left: -120px;
+        & .stories {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & img {
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid #ee2a7b;
+            }
+
+            & p {
+                color: white;
+                font-size: 13px;
+                user-select: none;
+            }
+        }
+    }
+}

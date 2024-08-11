@@ -1,8 +1,46 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+  background-color: black;
 }
-html {
-  color-scheme: white;
+
+
+.container_for_stories {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container_for_posts {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.active_buttons_in_post_all {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-top: 7px;
+  margin-left: -7px;
+}
+
+.get-post-like {
+  margin-top: 10px;
+}
+
+
+.container_for_user_profile {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container_for_users_post {
+  max-width: 960px;
+  width: 100%;
+  padding: 0 20px;
+  margin-left: 360px;
 }

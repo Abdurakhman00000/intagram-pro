@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { Inter } from "next/font/google";
 import { SessionProvider } from "@/providers/SessionProvider";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

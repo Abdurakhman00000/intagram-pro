@@ -10,9 +10,9 @@ namespace AUTH {
       updatedAt: string;
       surname: string;
       photo?: string;
-    }[];
+    };
   }
-  type GetUserRequest = [];
+  type GetUserRequest = void;
 
   interface PostRegisterResponse {
     accessToken: string;

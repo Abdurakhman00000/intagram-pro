@@ -8,7 +8,7 @@ import { usePostRegisterUserMutation } from "@/redux/api/auth";
 import Link from "next/link";
 import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../../firebase";
-import { log } from "console";
+import { useRouter } from "next/navigation";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "100" });
 
@@ -16,6 +16,7 @@ const Register = () => {
   const provider = new FacebookAuthProvider();
   const { register, handleSubmit } = useForm<AUTH.PostRegisterRequest>();
   const [postRegisterUser] = usePostRegisterUserMutation();
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<AUTH.PostRegisterRequest> = async (data) => {
     console.log(data);
@@ -23,6 +24,7 @@ const Register = () => {
       const response = await postRegisterUser(data).unwrap();
       console.log("Registration successful");
       localStorage.setItem("tokens", JSON.stringify(response));
+      router.push("/insta-home")
     } catch (error) {
       console.error("Failed to register", error);
     }
@@ -48,46 +50,19 @@ const Register = () => {
           <div className={scss.inst}>
             <h1 className={roboto.className}>Instagram</h1>
             <p>
-              Зарегистрируйтесь, чтобы <br /> смотреть фото и видео ваших друзей
+              Зарегистрируйтесь, чтобы просматривать фотографии и видео ваших
+              друзей.
             </p>
           </div>
-          <div className={scss.facebook}>
-            <button onClick={handleFacebookLogin}>
-              <AiFillFacebook style={{ fontSize: "27px" }} />
-              Войти через Facebook
-            </button>
-          </div>
+          <button onClick={handleFacebookLogin} className={scss.facebook}>
+            <AiFillFacebook style={{ fontSize: "27px" }} />
+            Войти через Facebook
+          </button>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "9px",
-              marginTop: "-10px",
-              alignItems: "center",
-            }}
-            className="or"
-          >
-            <div
-              className="line"
-              style={{
-                border: "1px solid #000",
-                opacity: "0.2",
-                width: "110px",
-                height: "0",
-                margin: "7px 0 0 7px",
-              }}
-            ></div>
+          <div className={scss.or}>
+            <div className={scss.line}></div>
             <p>ИЛИ</p>
-            <div
-              className="line"
-              style={{
-                border: "1px solid #000",
-                opacity: "0.2",
-                width: "110px",
-                margin: "8px 0 0 7px",
-                height: "0",
-              }}
-            ></div>
+            <div className={scss.line}></div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
@@ -112,44 +87,35 @@ const Register = () => {
             />
             <input placeholder="Photo" type="text" {...register("photo")} />
             <div className={scss.rules}>
-              <p>
-                Люди, которые пользуются нашим сервисом, <br /> могли загрузить
-                вашу контактную информацию <br /> в Instagram.
-                <span style={{ color: "#668bf2" }}>
-                  <Link
-                    style={{ textDecorationLine: "none", color: "#2860fb" }}
-                    href="https://www.facebook.com/help/instagram/261704639352628"
-                  >
-                    Подробнее
-                  </Link>
-                </span>
-              </p>
-              <p>
-                Регистрируясь, вы принимаете наши{" "}
-                <span style={{ color: "#2860fb" }}>
-                  Условия <br />
-                  <Link
-                    style={{ textDecorationLine: "none", color: "#2860fb" }}
-                    href="https://privacycenter.instagram.com/policies/cookies/"
-                  >
-                    {" "}
-                    Политику конфиденциальности и Политику <br /> в отношении
-                    файлов cookie.
-                  </Link>
-                </span>
-              </p>
+              <span>
+                Люди, которые пользуются нашим сервисом, могли загрузить вашу
+                контактную информацию в Instagram.
+              </span>
+              <Link href="https://www.facebook.com/help/instagram/261704639352628">
+                Подробнее
+              </Link>
+              <p>Регистрируясь, вы принимаете наши</p>
+              <Link href="https://help.instagram.com/581066165581870/?locale=en_US">
+                Условия
+              </Link>
+              ,
+              <Link href="https://www.facebook.com/privacy/policy">
+                Политику конфиденциальности
+              </Link>
+              <span>и</span>
+              <Link href="https://privacycenter.instagram.com/policies/cookies/">
+                Политику в отношении файлов cookie.
+              </Link>
             </div>
             <button type="submit">Регистрация</button>
           </form>
         </div>
-      </div>
-      <div className={scss.account}>
-        <p>
-          Есть аккаунт?{" "}
+        <div className={scss.account}>
+          <span>Есть аккаунт?</span>
           <a href="/auth/sign-in" style={{ color: "#2860fb" }}>
             Вход
           </a>
-        </p>
+        </div>
       </div>
     </div>
   );

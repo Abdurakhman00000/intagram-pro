@@ -1,0 +1,14 @@
+.main_get_user_block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    & img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    & p {
+        color: white;
+    }
+}

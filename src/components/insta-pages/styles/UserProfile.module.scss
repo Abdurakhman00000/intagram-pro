@@ -1,0 +1,72 @@
+.main_profile {
+    display: flex;
+    gap: 90px;
+    margin-left: 150px;
+    margin-top: 70px;
+    & .user_img {
+
+        & img {
+            width: 153px;
+            height: 153px;
+            border-radius: 50%;
+        }
+    }
+
+    & .users_information {
+        margin-top: -18px;
+        & .information1 {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            & p {
+                color: white;
+                font-size: 20px;
+            }
+
+            & button {
+                width: 135px;
+                height: 32px;
+                color: white;
+                font-size: 15px;
+                font-weight: 500;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.247);
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        }
+
+        & .information2 {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            & p {
+                color: white;
+            }
+        }
+    }
+}
+
+.add_stories_button {
+    margin-top: 40px;
+    margin-left: 120px;
+    & button {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.111);
+        font-size: 80px;
+        padding-top: -60px;
+        color: rgba(255, 255, 255, 0.496);
+        border: none;
+        border: 1px solid rgba(255, 255, 255, 0.312);
+        cursor: pointer;
+    }
+
+    & p {
+        color: white;
+        font-size: 13px;
+        margin-left: 31px;
+    }
+}

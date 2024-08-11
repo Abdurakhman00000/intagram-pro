@@ -8,6 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { usePostLoginUserMutation } from "@/redux/api/auth";
 import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../../firebase";
+import { useRouter } from "next/navigation";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "100" });
 
@@ -15,6 +16,7 @@ const LoginPage = () => {
   const provider = new FacebookAuthProvider();
   const { register, handleSubmit } = useForm<AUTH.PostLoginRequest>();
   const [postLoginUser] = usePostLoginUserMutation();
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<AUTH.PostLoginRequest> = async (data) => {
     console.log(data);
@@ -22,6 +24,7 @@ const LoginPage = () => {
       const responsedata = await postLoginUser(data);
       console.log(responsedata, "response");
       localStorage.setItem("tokens", JSON.stringify(responsedata.data));
+      router.push("/insta-home")
     } catch (error) {
       alert(error);
     }

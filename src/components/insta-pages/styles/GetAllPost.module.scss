@@ -1,0 +1,29 @@
+.imp_post_all {
+
+    margin-left: -170px;
+    & .main_post_all {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.259);
+        margin-bottom: 30px;
+        padding-bottom: 14px;
+        & .active_post_all {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        & img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            object-position: center;
+            padding-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.226);
+            border-radius: 3px;
+        }
+
+        & p {
+            color: white;
+            font-size: 14px;
+        }
+    }
+}
