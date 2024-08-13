@@ -10,11 +10,31 @@ body {
   padding: 0 20px;
 }
 
+@media(max-width: 1280px) {
+  .container_for_stories {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-left: 220px;
+  }
+}
+
 .container_for_posts {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+@media (max-width: 1280px) {
+  .container_for_posts {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-left: 500px;
+  }
 }
 
 .active_buttons_in_post_all {
@@ -43,4 +63,13 @@ body {
   width: 100%;
   padding: 0 20px;
   margin-left: 360px;
+}
+
+@media (max-width: 1280px) {
+  .container_for_users_post {
+    max-width: 960px;
+    width: 100%;
+    padding: 0 20px;
+    margin-left: 260px;
+  }
 }
