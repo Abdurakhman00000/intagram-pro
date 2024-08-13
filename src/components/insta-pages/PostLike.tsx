@@ -30,7 +30,7 @@ const PostLike: React.FC<PostLikeProps> = ({ postId, isLiked }) => {
 
   return (
     <button
-      style={{ background: "transparent", border: "none" }}
+      style={{ background: "transparent", border: "none", cursor: "pointer" }}
       onClick={handleLike}
     >
       {liked ? (

@@ -15,7 +15,8 @@ export const SessionProvider: FC<SessionProviderProps> = ({ children }) => {
     if (!tokens) return;
 
     const { accessTokenExpiration, refreshToken } = tokens;
-    if (accessTokenExpiration <= Date.now()) {
+    console.log(accessTokenExpiration);
+    if (accessTokenExpiration  <= Date.now()) {
       console.log("Токен истек!");
       try {
         const { data } = await refreshAccesToken({ refreshToken });

@@ -24,7 +24,7 @@ const Register = () => {
       const response = await postRegisterUser(data).unwrap();
       console.log("Registration successful");
       localStorage.setItem("tokens", JSON.stringify(response));
-      router.push("/insta-home")
+      router.push("/insta-home");
     } catch (error) {
       console.error("Failed to register", error);
     }

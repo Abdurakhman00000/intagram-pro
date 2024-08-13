@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
-import scss from "./styles/LoginPage.module.scss";
-import Image from "next/image";
+import scss from "./styles/LoginPage.module.css";
 import { AiFillFacebook } from "react-icons/ai";
 import { Roboto } from "next/font/google";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -24,23 +23,24 @@ const LoginPage = () => {
       const responsedata = await postLoginUser(data);
       console.log(responsedata, "response");
       localStorage.setItem("tokens", JSON.stringify(responsedata.data));
-      router.push("/insta-home")
+      router.push("/insta-home");
     } catch (error) {
       alert(error);
     }
   };
+
   const handleFacebookLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       const token = await user.getIdToken();
-
       await postLoginUser({ token }).unwrap();
       console.log("Facebook login successful");
     } catch (error) {
       console.error("Failed to log in with Facebook", error);
     }
   };
+
   return (
     <div className={scss.Login}>
       <div className="container">
@@ -52,7 +52,11 @@ const LoginPage = () => {
               placeholder="Телефон, имя пользователя или эл.адрес"
               type="text"
             />
-            <input {...register("password")} placeholder="Пароль" type="text" />
+            <input
+              {...register("password")}
+              placeholder="Пароль"
+              type="text"
+            />
             <button type="submit">Войти</button>
           </form>
           <div style={{ display: "flex", gap: "9px" }} className="or">
@@ -80,7 +84,7 @@ const LoginPage = () => {
           </div>
           <div onClick={handleFacebookLogin} className={scss.facebook}>
             <AiFillFacebook style={{ fontSize: "27px" }} />
-            <>Войти через Facebook</>
+            Войти через Facebook
           </div>
           <a
             style={{
